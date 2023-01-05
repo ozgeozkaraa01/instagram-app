@@ -1,11 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import React from "react";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faHouse,
+  faCirclePlus,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between max-w-6xl ">
+    <div className="flex items-center justify-between max-w-6xl mx-4 xl:mx-auto ">
       {/* Left */}
       <div className=" cursor-pointer h-24 w-24 relative">
         <Image
@@ -30,7 +34,21 @@ const Header = () => {
       </div>
 
       {/* Right */}
-      <h1>right sides</h1>
+      <div className="flex space-x-4 items-center">
+        <FontAwesomeIcon
+          icon={faHouse}
+          className=" hidden md:inline-flex h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
+        />
+        <FontAwesomeIcon
+          icon={faCirclePlus}
+          className="h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
+        />
+        <img
+          src="https://media.licdn.com/dms/image/D4D03AQFCbGuqUohg5w/profile-displayphoto-shrink_200_200/0/1671976917166?e=1677715200&v=beta&t=FsfviezFZ3d2WnXTuPZgS5fRUiIKm4Vhiqh7IOMxqHE"
+          alt="photo"
+          className="h-10 rounded-full cursor-pointer"
+        ></img>
+      </div>
     </div>
   );
 };
