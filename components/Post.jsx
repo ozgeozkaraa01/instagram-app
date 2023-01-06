@@ -5,6 +5,7 @@ import {
   faHeart,
   faComment,
   faBookmark,
+  faFaceSmile,
 } from "@fortawesome/free-regular-svg-icons";
 
 const Post = ({ img, userImg, caption, username, id }) => {
@@ -30,6 +31,21 @@ const Post = ({ img, userImg, caption, username, id }) => {
         </div>
         <FontAwesomeIcon icon={faBookmark} className="btn" />
       </div>
+      {/* Post Comments */}
+      <p className="p-5 truncate">
+        <span className="font-bold mr-2">{username}</span>
+        {caption}
+      </p>
+      {/* Post Input Box */}
+      <form action="flex items-center p-4">
+        <FontAwesomeIcon icon={faFaceSmile} className="h-7" />
+        <input
+          className="border-none flex-1 focus:ring-0"
+          type="text"
+          placeholder="Yorum ekle..."
+        ></input>
+        <button className="text-blue-400 font-bold">Paylaş</button>
+      </form>
     </div>
   );
 };
