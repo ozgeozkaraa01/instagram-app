@@ -1,6 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faComment,
+  faBookmark,
+} from "@fortawesome/free-regular-svg-icons";
 
 const Post = ({ img, userImg, caption, username, id }) => {
   return (
@@ -17,6 +22,14 @@ const Post = ({ img, userImg, caption, username, id }) => {
       </div>
       {/* Post Image */}
       <img src={img} alt="photo" className="object-cover w-full"></img>
+      {/* Post Buttons */}
+      <div className="flex justify-between px-4 pt-4">
+        <div className="flex space-x-4">
+          <FontAwesomeIcon icon={faHeart} className="btn" />
+          <FontAwesomeIcon icon={faComment} className="btn" />
+        </div>
+        <FontAwesomeIcon icon={faBookmark} className="btn" />
+      </div>
     </div>
   );
 };
