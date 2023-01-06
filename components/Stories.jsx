@@ -6,7 +6,7 @@ import Story from "./Story";
 const Stories = () => {
   const [storyUsers, setSoryUsers] = useState([]);
   useEffect(() => {
-    const storyUsers = minifaker.array(40, (i) => ({
+    const storyUsers = minifaker.array(200, (i) => ({
       username: minifaker.username({ locale: "en" }).toLowerCase(),
       img: `https://i.pravatar.cc/150?img=${Math.ceil(Math.random() * 70)}`,
       id: i,
