@@ -18,7 +18,7 @@ const Post = ({ img, userImg, caption, username, id }) => {
           alt={username}
           className="h-12 rounded-full object-cover border p-1 mr-3"
         />
-        <p className="font-bold">{username}</p>
+        <p className="font-bold flex-1">{username}</p>
         <FontAwesomeIcon icon={faEllipsis} className="h-5" />
       </div>
       {/* Post Image */}
@@ -44,7 +44,9 @@ const Post = ({ img, userImg, caption, username, id }) => {
           type="text"
           placeholder="Yorum ekle..."
         ></input>
-        <button className="text-blue-400 font-bold">Paylaş</button>
+        <button className="text-blue-400 font-bold disabled:text-blue-200">
+          Paylaş
+        </button>
       </form>
     </div>
   );
