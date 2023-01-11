@@ -37,7 +37,7 @@ const Post = ({ img, userImg, caption, username, id }) => {
         {caption}
       </p>
       {/* Post Input Box */}
-      <form action="flex items-center p-4">
+      <form className="flex items-center p-4">
         <FontAwesomeIcon icon={faFaceSmile} className="h-7" />
         <input
           className="border-none flex-1 focus:ring-0"
