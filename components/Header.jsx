@@ -6,8 +6,12 @@ import {
   faHouse,
   faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
+  console.log(session);
+
   return (
     <div className="shadow border-b sticky top-0 bg-white z-30">
       <div className="flex items-center justify-between max-w-6xl mx-4 xl:mx-auto ">
@@ -40,15 +44,22 @@ const Header = () => {
             icon={faHouse}
             className=" hidden md:inline-flex h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
           />
-          <FontAwesomeIcon
-            icon={faCirclePlus}
-            className="h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
-          />
-          <img
-            src="https://media.licdn.com/dms/image/D4D03AQFCbGuqUohg5w/profile-displayphoto-shrink_200_200/0/1671976917166?e=1677715200&v=beta&t=FsfviezFZ3d2WnXTuPZgS5fRUiIKm4Vhiqh7IOMxqHE"
-            alt="photo"
-            className="h-10 rounded-full cursor-pointer"
-          ></img>
+          {session ? (
+            <>
+              <FontAwesomeIcon
+                icon={faCirclePlus}
+                className="h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
+              />
+              <img
+                onClick={signOut}
+                src={session.user.image}
+                alt="photo"
+                className="h-10 rounded-full cursor-pointer"
+              />
+            </>
+          ) : (
+            <button onClick={signIn}>Sign in</button>
+          )}
         </div>
       </div>
     </div>
