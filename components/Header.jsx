@@ -7,10 +7,12 @@ import {
   faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atom/modalAtom";
 
 const Header = () => {
   const { data: session } = useSession();
-  console.log(session);
+  const [open, setOpen] = useRecoilState(modalState);
 
   return (
     <div className="shadow border-b sticky top-0 bg-white z-30">
@@ -47,6 +49,7 @@ const Header = () => {
           {session ? (
             <>
               <FontAwesomeIcon
+                onClick={() => setOpen(true)}
                 icon={faCirclePlus}
                 className="h-6 cursor-pointer hover:scale-125 transition-transfrom duration-200 ease-out"
               />
