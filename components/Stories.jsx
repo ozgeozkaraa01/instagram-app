@@ -5,7 +5,7 @@ import Story from "./Story";
 import { useSession } from "next-auth/react";
 
 const Stories = () => {
-  const [storyUsers, setSoryUsers] = useState([]);
+  const [storyUsers, setStoryUsers] = useState([]);
   const { data: session } = useSession();
   useEffect(() => {
     const storyUsers = minifaker.array(200, (i) => ({
@@ -13,7 +13,7 @@ const Stories = () => {
       img: `https://i.pravatar.cc/150?img=${Math.ceil(Math.random() * 70)}`,
       id: i,
     }));
-    setSoryUsers(storyUsers);
+    setStoryUsers(storyUsers);
     console.log(storyUsers);
   }, []);
   return (
