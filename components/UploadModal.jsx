@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atom/modalAtom";
 import Modal from "react-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
 const UploadModal = () => {
   const [open, setOpen] = useRecoilState(modalState);
+  const filePickerRef = useRef(null);
   return (
     <div>
       {open && (
@@ -14,7 +17,13 @@ const UploadModal = () => {
           onRequestClose={() => setOpen(false)}
         >
           <div className="flex flex-col justify-center items-center h-[100%]">
-            <h1>modal</h1>
+            <FontAwesomeIcon
+              onClick={() => filePickerRef.current.click()}
+              icon={faCamera}
+              className="cursor-pointer h-14 bg-red-200 p-2 rounded-full border-2 text-red-500"
+            />
+            <input type="file" hidden ref={filePickerRef}></input>
+            <input type="text" maxLength="150"></input>
           </div>
         </Modal>
       )}
